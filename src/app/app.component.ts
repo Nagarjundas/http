@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import{ServiceService} from './service.service'
 
 
 @Component({
@@ -8,4 +9,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'http';
+  Dog : any =[];
+  constructor(private service: ServiceService) {}
+
+showImage(){
+
+this.service.getImage().subscribe(data =>{
+this.Dog = data;
+console.log(this.Dog);
+})
+
+}
+
 }
